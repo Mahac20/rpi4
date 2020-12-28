@@ -1,0 +1,28 @@
+https://www.domo-blog.fr/comment-configurer-boot-usb-raspberry-pi-4-officiel/
+sudo apt update
+sudo apt full-upgrade
+sudo rpi-update
+sudo reboot
+# Installation du nouveau bootloader
+sudo rpi-eeprom-update -d -a
+# Lancez l’interface de configuration du Raspberry Pi
+sudo raspi-config
+# Choisir 3 Boot options
+# Choisir le dernier menu B5 Boot ROM Version
+# Choisir la dernière version Latest
+# Attention à bien lire le message suivant, il est important de bien faire No et non pas Yes
+# Un nouveau message confirme le choix
+# Retournez à nouveau dans les boots options
+# Choisir à présent le menu Boot Order
+# Choisir B1 USB Boot
+# Le choix du boot USB est alors confirmé
+# A présent, il est temps de sortir du menu de configuration via Finish
+# Attention un nouvelle fois, un message demande de redémarrer le Rpi, il est important de bien dire Non à cette étape
+# Plutôt que redémarrer, nous allons arrêter le Raspberry Pi à l’aide de la commande suivante
+
+sudo halt
+
+# Sauvegarde de la carte SD
+# Maintenant, passons à la sauvegarde de la carte SD à l’aide de W32 Disk Imager. Désignez un fichier de sortie qui sera la copie de la carte SD, puis lancez la sauvegarde via le bouton Lire.
+# Une fois terminé, vous pouvez retirer la carte SD et brancher le disque SSD dans son lecteur sur le PC. Toujours avec W32 Disk Imager, nous allons à présent restaurer l’image de la carte SD sur le disque SSD via le bouton Ecrire.
+# C’est terminé, il ne reste plus qu’à brancher le disque SSD sur un des ports USB 3 du Raspberry Pi 4 et le démarrer. Plus besoin de carte SD, retirez-là. Le Raspberry Pi boot à présent depuis le disque, le système est alors plus rapide et fiable, mais surtout sécurisé! A vous les projets domotiques. Dans ces nouvelles conditions, votre Raspberry Pi est un support parfait pour monter votre serveur domotique, économique, fiable et puissant.
